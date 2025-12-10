@@ -1,193 +1,554 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="antialiased">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pruthviraj Sarjerao Patil - Cloud & Cybersecurity</title>
-  <meta name="description" content="Pruthviraj - Cloud Security Learner & Cybersecurity Enthusiast. Projects: Clickstream ETL, Ethical Crowdfunding Checker." />
 
-  <!-- Tailwind CDN -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pruthviraj Sarjerao Patil | Cloud & Cybersecurity</title>
+  <meta name="description" content="Portfolio of Pruthviraj Sarjerao Patil - Cloud Security Learner & Cybersecurity Enthusiast." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { accent: '#1A73E8' },
-          fontFamily: { heading: ['Sora', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+          colors: {
+            ocean: '#1A73E8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Sora', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
         }
       }
     }
   </script>
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script src="script.js?v=4" defer></script>
 </head>
-<body class="bg-[var(--bg)] text-[var(--text)]">
 
-  <!-- NAV -->
+<body class="bg-[var(--bg)] text-[var(--text)] overflow-x-hidden">
+
+  <!-- Navigation (Glassmorphic Pill) -->
   <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-    <nav class="nav-pill flex items-center gap-2 px-3 py-2 shadow-lg">
-      <a href="#home" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Home</a>
-      <a href="#about" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">About</a>
-      <a href="#projects" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Projects</a>
-      <a href="#skills" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Skills</a>
-      <a href="#experience" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Experience</a>
-      <a href="#contact" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Contact</a>
+    <div class="glass-nav flex items-center justify-between px-3 py-2 rounded-full transition-all duration-300">
+      <!-- Scrollable Links -->
+      <nav class="nav-scroll flex items-center gap-1 overflow-x-auto no-scrollbar mask-gradient">
+        <a href="#home"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Home</a>
+        <a href="#about"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">About</a>
+        <a href="#projects"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Projects</a>
+        <a href="#skills"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Skills</a>
+        <a href="#experience"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Experience</a>
+        <a href="#contact"
+          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Contact</a>
+      </nav>
 
-      <div class="w-px h-6 bg-[var(--card-border)] mx-2"></div>
+      <!-- Fixed Icons -->
+      <div class="flex items-center gap-2 pl-3 border-l border-black/10 dark:border-white/10 ml-2 flex-shrink-0">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle"
+          class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+          aria-label="Toggle Theme">
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414z" />
+          </svg>
+        </button>
 
-      <button id="theme-toggle" class="p-2 rounded-full" aria-label="Toggle Theme">
-        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-        <svg id="theme-toggle-light-icon" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
-      </button>
-    </nav>
+        <!-- Menu Toggle (3 Dots) -->
+        <div class="relative">
+          <button id="menu-btn"
+            class="nav-menu p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+            aria-label="Toggle Menu">
+            <svg class="w-5 h-5 text-[var(--text)]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div id="dropdown-menu"
+            class="hidden absolute right-0 top-12 w-48 glass-card py-2 shadow-xl border border-white/20 dark:border-white/10 transform origin-top-right transition-all duration-200 opacity-0 scale-95 z-50">
+            <a href="#home"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Home</a>
+            <a href="#about"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">About</a>
+            <a href="#skills"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Skills</a>
+            <a href="#projects"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Projects</a>
+            <a href="#experience"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Experience</a>
+            <a href="#contact"
+              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Contact</a>
+            <div class="h-px bg-[var(--card-border)] my-1"></div>
+            <a href="assets/Pruthviraj_CV.pdf" target="_blank"
+              class="block px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Download
+              CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- HERO -->
-  <section id="home" class="min-h-screen flex items-center pt-32 pb-20">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <!-- LEFT -->
-      <div class="lg:col-span-7 order-2 lg:order-1 space-y-6">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Available for opportunities</span>
-        <h1 class="font-heading text-5xl md:text-6xl font-bold leading-tight">Hi, I'm <span class="text-[var(--accent)]">Pruthviraj</span></h1>
-        <h2 class="text-xl text-[var(--text-muted)] max-w-xl">Cloud Security Learner • Cybersecurity Enthusiast • Future IT Infrastructure Engineer</h2>
-        <p class="text-[var(--text-muted)] max-w-2xl leading-relaxed">I explore cloud technologies, cybersecurity, and ethical hacking to build secure and scalable systems. I enjoy turning technical concepts into practical security-driven solutions.</p>
-        <div class="flex gap-4">
-          <a href="mailto:pruthvirajsp1307@gmail.com" class="btn-primary px-6 py-3 rounded-lg font-semibold">Hire Me</a>
-          <a href="#" id="download-cv" class="btn-outline px-6 py-3 rounded-lg font-semibold">Download CV</a>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
+    <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <!-- Left Content (55%) -->
+      <div class="lg:col-span-7 space-y-8 order-2 lg:order-1">
+        <div class="animate-fade-in-up">
+          <span
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Available for New Opportunities
+          </span>
         </div>
-        <div class="flex items-center gap-6 text-sm text-[var(--text-muted)]">
-          <div class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a4 4 0 00-8 0v4"/></svg> Pune, India</div>
-          <div class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg> IST (UTC+5:30)</div>
+
+        <div class="space-y-4 animate-fade-in-up">
+          <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight text-[var(--text)]">
+            Hi, I'm <span class="text-[var(--accent)]">Pruthviraj</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl font-medium text-[var(--text-muted)]">
+            Cloud Security Learner • Cybersecurity Enthusiast • Future IT Infrastructure Engineer
+          </h2>
+        </div>
+
+        <p class="text-lg text-[var(--text-muted)] max-w-xl leading-relaxed animate-fade-in-up">
+          I explore cloud technologies, cybersecurity, and ethical hacking to build secure and scalable systems.
+          I enjoy turning technical concepts into practical security-driven solutions and contributing to
+          cloud-security and infrastructure projects.
+        </p>
+
+        <div class="flex items-center gap-6 text-sm font-medium text-[var(--text-muted)] animate-fade-in-up">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Pune, Maharashtra
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            IST (UTC+5:30)
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-2 animate-fade-in-up">
+          <a href="mailto:pruthvirajsp1307@gmail.com"
+            class="btn-primary px-8 py-3 rounded-lg font-semibold text-center">
+            Hire Me
+          </a>
+          <a href="assets/Pruthviraj_CV.pdf" target="_blank"
+            class="btn-outline px-8 py-3 rounded-lg font-semibold text-center">
+            Download CV
+          </a>
+        </div>
+
+        <!-- Social Icons Row -->
+        <div class="flex items-center gap-6 pt-4 animate-fade-in-up">
+          <a href="https://github.com/shrreeeram" target="_blank"
+            class="text-[var(--text-muted)] hover:text-[var(--text)] transition-colors" aria-label="GitHub">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank"
+            class="text-[var(--text-muted)] hover:text-[var(--text)] transition-colors" aria-label="LinkedIn">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+          <a href="mailto:pruthvirajsp1307@gmail.com"
+            class="text-[var(--text-muted)] hover:text-[var(--text)] transition-colors" aria-label="Email">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- RIGHT (image) -->
-      <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-        <div class="relative max-w-[420px] w-full shadow-2xl rounded-2xl border border-[var(--card-border)] overflow-hidden hero-card">
-          <img src="assets/hero-pruthviraj.png" alt="Pruthviraj Patil" class="w-full h-auto block object-cover">
+      <!-- Right Content (45%) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2 hero-img-reveal">
+        <div class="relative w-full max-w-[350px]">
+          <img src="assets/hero-pruthviraj.png" alt="Pruthviraj Sarjerao Patil"
+            class="w-full h-auto rounded-xl shadow-lg border border-[var(--card-border)]">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-20">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div class="lg:col-span-7">
-        <h2 class="text-3xl font-heading font-bold">About Me</h2>
-        <p class="mt-4 text-[var(--text-muted)] leading-relaxed">I’m a multidisciplinary technology learner focused on Cloud Security, Cybersecurity Engineering, and Ethical Hacking. My practical work includes building projects like an Ethical Crowdfunding Checker and a Clickstream ETL pipeline. Leadership roles at university sharpened my communication and execution skills. I enjoy building secure, scalable systems and am seeking opportunities in Cloud Security and Cybersecurity engineering roles.</p>
+  <!-- 2. ABOUT ME -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Column: About Text -->
+      <div class="lg:col-span-7 space-y-8 reveal-on-scroll">
+        <h2 class="font-heading text-3xl font-bold text-[var(--text)]">About Me</h2>
+        <div class="prose prose-lg text-[var(--text-muted)]">
+          <p>
+            I am a multidisciplinary technology learner specializing in Cloud Technologies, Cybersecurity, and Ethical
+            Hacking. I focus on building secure, scalable solutions and have practical experience with cloud fundamentals,
+            VAPT, IAM, and distributed architectures.
+          </p>
+          <p>
+            I’ve built security-driven projects such as an Ethical Crowdfunding Checker and a Website Clickstream ETL
+            Pipeline. Holding leadership roles at college helped me develop coordination, event management and corporate
+            outreach skills.
+          </p>
+          <p>
+            I’m actively seeking opportunities in Cloud Security, Cybersecurity Engineering, and IT infrastructure roles
+            where I can contribute to secure technology innovation.
+          </p>
+        </div>
       </div>
 
-      <aside class="lg:col-span-5 space-y-4">
-        <div class="glass-card p-6">
-          <h3 class="font-bold">Education</h3>
-          <p class="text-[var(--text-muted)] mt-2">BCA — Sri Balaji University, Pune (Cloud Computing & Cyber Security)</p>
+      <!-- Right Column: Quick Timeline -->
+      <div class="lg:col-span-5 reveal-on-scroll delay-100">
+        <div class="glass-card p-6 border border-[var(--card-border)]">
+          <h3 class="font-bold text-[var(--text)] mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+            Quick Timeline
+          </h3>
+          <ul class="space-y-6 border-l border-[var(--card-border)] ml-2 pl-6">
+            <li class="relative">
+              <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+              <p class="text-[var(--text)] text-sm font-bold">Jul 2023 – Jul 2025</p>
+              <p class="text-[var(--text-muted)] text-sm font-semibold">Student Manager, Sri Balaji University (SBUP)</p>
+              <p class="text-[var(--text-muted)] text-xs mt-1">Pune, India</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+              <p class="text-[var(--text)] text-sm font-bold">Jan 2025 – Jul 2025</p>
+              <p class="text-[var(--text-muted)] text-sm font-semibold">Corporate Relations Team Member, SBUP</p>
+              <p class="text-[var(--text-muted)] text-xs mt-1">Pune, India</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+              <p class="text-[var(--text)] text-sm font-bold">Jun 2023 – Jun 2024</p>
+              <p class="text-[var(--text-muted)] text-sm font-semibold">Student Representative (Class Rep)</p>
+              <p class="text-[var(--text-muted)] text-xs mt-1">Pune, India</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+              <p class="text-[var(--text)] text-sm font-bold">May 2024 – Jun 2024</p>
+              <p class="text-[var(--text-muted)] text-sm font-semibold">Customer Executive, Conneqt (Quess Corp)</p>
+              <p class="text-[var(--text-muted)] text-xs mt-1">Pune / Pimpri-Chinchwad</p>
+            </li>
+          </ul>
         </div>
-        <div class="glass-card p-6">
-          <h3 class="font-bold">Languages</h3>
-          <p class="text-[var(--text-muted)] mt-2">English (Professional) • Marathi (Native) • Hindi • Ahirani</p>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 bg-[var(--card-bg)]">
+  <!-- Projects -->
+  <section id="projects" class="py-24 bg-[var(--card-bg)]">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-heading font-bold mb-8">Featured Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <article class="glass-card p-8">
-          <span class="text-xs font-semibold text-[var(--accent)]">PMKVY Project</span>
-          <h3 class="text-2xl font-bold mt-2">Website Clickstream ETL Pipeline</h3>
-          <p class="text-[var(--text-muted)] mt-3">Built an ETL pipeline (AWS Glue / PySpark) to process clickstream logs, extract session info, and query data through Athena. Implemented robust logging and error handling for production reliability.</p>
-          <a href="https://github.com/shrreeeram/PMKVY-Project---Website-Clickstream-ETL-Pipeline" target="_blank" class="mt-4 inline-block text-[var(--accent)] font-semibold">View on GitHub →</a>
-        </article>
+      <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-12 reveal-on-scroll">
+        Featured Work
+      </h2>
 
-        <article class="glass-card p-8">
-          <span class="text-xs font-semibold text-[var(--accent)]">Cybersecurity Mini Project</span>
-          <h3 class="text-2xl font-bold mt-2">Ethical Crowdfunding Checker</h3>
-          <p class="text-[var(--text-muted)] mt-3">A rule-based crowdfunding platform with fraud checks, admin approvals and web-scraping validation (Flask, Firebase, BeautifulSoup) designed to detect suspicious campaigns.</p>
-          <a href="https://github.com/shrreeeram/Ethical-Crowdfundung-Checker" target="_blank" class="mt-4 inline-block text-[var(--accent)] font-semibold">View on GitHub →</a>
-        </article>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Clickstream ETL -->
+        <div
+          class="glass-card p-8 block hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-on-scroll group">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-2 block">PMKVY Project</span>
+          <h3 class="text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+            Website Clickstream ETL Pipeline
+          </h3>
+          <p class="text-[var(--text-muted)] mb-6">
+            Developed an ETL pipeline (Python, AWS Glue/PySpark, S3, Athena) to process website clickstream logs and extract
+            session-level insights with robust logging and error handling.
+          </p>
+          <a href="https://github.com/shrreeeram/PMKVY-Project---Website-Clickstream-ETL-Pipeline" target="_blank"
+            class="text-sm font-bold text-[var(--text)] hover:text-[var(--accent)] transition-colors">View on GitHub →
+          </a>
+        </div>
+
+        <!-- Crowdfunding -->
+        <div
+          class="glass-card p-8 block hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-on-scroll group">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-2 block">Cybersecurity</span>
+          <h3 class="text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+            Ethical Crowdfunding Checker
+          </h3>
+          <p class="text-[var(--text-muted)] mb-6">
+            Built a rule-based crowdfunding validation platform (Flask, Firebase, BeautifulSoup) to detect suspicious campaigns
+            and provide admin verification flows.
+          </p>
+          <a href="https://github.com/shrreeeram/Ethical-Crowdfundung-Checker" target="_blank"
+            class="text-sm font-bold text-[var(--text)] hover:text-[var(--accent)] transition-colors">View on GitHub →
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-heading font-bold mb-8">Core Skills</h2>
+      <h3 class="font-heading text-xl font-bold text-[var(--text)] mb-8 reveal-on-scroll">
+        Technical Projects
+      </h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-card p-6">
-          <h4 class="font-bold mb-2">Cloud Technologies</h4>
-          <p class="text-[var(--text-muted)] text-sm">Azure (Core), AWS fundamentals, Cloud Architecture, Cloud Networking & Security, IAM</p>
+        <a href="projects/pen-testing-lab.html"
+          class="glass-card p-6 block hover:border-[var(--accent)] hover:-translate-y-1 transition-all duration-300 reveal-on-scroll group">
+          <h4 class="font-bold text-[var(--text)] mb-2 group-hover:text-[var(--accent)] transition-colors">
+            Pen-Testing Lab
+          </h4>
+          <p class="text-sm text-[var(--text-muted)] mb-4">
+            Virtual lab environment for ethical hacking simulations.
+          </p>
+          <span class="text-xs font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">View
+            Details →
+          </span>
+        </a>
+        <a href="https://zenodo.org/records/10686955" target="_blank"
+          class="glass-card p-6 block hover:border-[var(--accent)] hover:-translate-y-1 transition-all duration-300 reveal-on-scroll group">
+          <h4 class="font-bold text-[var(--text)] mb-2 group-hover:text-[var(--accent)] transition-colors">
+            Phishing Research
+          </h4>
+          <p class="text-sm text-[var(--text-muted)] mb-4">
+            Academic research on AI-driven phishing attacks.
+          </p>
+          <span class="text-xs font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">Read
+            Paper →
+          </span>
+        </a>
+        <a href="https://satyyy001.github.io/Password_Strength_Checker/" target="_blank"
+          class="glass-card p-6 block hover:border-[var(--accent)] hover:-translate-y-1 transition-all duration-300 reveal-on-scroll group">
+          <h4 class="font-bold text-[var(--text)] mb-2 group-hover:text-[var(--accent)] transition-colors">
+            Password Analyzer
+          </h4>
+          <p class="text-sm text-[var(--text-muted)] mb-4">
+            Real-time password strength estimation tool.
+          </p>
+          <span class="text-xs font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">Live
+            Demo →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Restructured Skills Section -->
+  <section id="skills" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Core Skills Block -->
+      <div class="mb-24">
+        <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-12 reveal-on-scroll">
+          Core Skills
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Cybersecurity -->
+          <div
+            class="glass-card p-6 reveal-on-scroll hover:-translate-y-2 hover:shadow-2xl hover:border-[var(--accent)] transition-all duration-300 group">
+            <h3
+              class="font-bold text-[var(--text)] mb-4 flex items-center gap-2 group-hover:text-[var(--accent)] transition-colors">
+              <span class="w-2 h-2 rounded-full bg-red-500 group-hover:animate-pulse"></span>
+              Cybersecurity
+            </h3>
+            <ul class="space-y-2 text-[var(--text-muted)] list-disc pl-5 text-sm group-hover:text-[var(--text)] transition-colors">
+              <li>VAPT & Web Security (Burp Suite, OWASP)</li>
+              <li>Threat Analysis & Vulnerability Management</li>
+              <li>Zero Trust & IAM basics</li>
+            </ul>
+          </div>
+
+          <!-- Cloud Technologies -->
+          <div
+            class="glass-card p-6 reveal-on-scroll hover:-translate-y-2 hover:shadow-2xl hover:border-[var(--accent)] transition-all duration-300 group">
+            <h3
+              class="font-bold text-[var(--text)] mb-4 flex items-center gap-2 group-hover:text-[var(--accent)] transition-colors">
+              <span class="w-2 h-2 rounded-full bg-green-500 group-hover:animate-pulse"></span>
+              Cloud Technologies
+            </h3>
+            <ul class="space-y-2 text-[var(--text-muted)] list-disc pl-5 text-sm group-hover:text-[var(--text)] transition-colors">
+              <li>Azure (Core Services & Architecture)</li>
+              <li>AWS & Google Cloud fundamentals, Cloud Architecture</li>
+              <li>Cloud Networking & Security, IAM</li>
+            </ul>
+          </div>
+
+          <!-- Programming & Databases -->
+          <div
+            class="glass-card p-6 reveal-on-scroll hover:-translate-y-2 hover:shadow-2xl hover:border-[var(--accent)] transition-all duration-300 group">
+            <h3
+              class="font-bold text-[var(--text)] mb-4 flex items-center gap-2 group-hover:text-[var(--accent)] transition-colors">
+              <span class="w-2 h-2 rounded-full bg-blue-500 group-hover:animate-pulse"></span>
+              Programming & Databases
+            </h3>
+            <ul class="space-y-2 text-[var(--text-muted)] list-disc pl-5 text-sm group-hover:text-[var(--text)] transition-colors">
+              <li>Python (Beginner–Intermediate)</li>
+              <li>SQL, MongoDB (NoSQL)</li>
+              <li>HTML, CSS, JavaScript</li>
+            </ul>
+          </div>
         </div>
-        <div class="glass-card p-6">
-          <h4 class="font-bold mb-2">Cybersecurity</h4>
-          <p class="text-[var(--text-muted)] text-sm">VAPT, Burp Suite, OWASP Top 10, Threat Analysis, Zero Trust basics</p>
+      </div>
+
+      <!-- Tools Block (Visually Distinct) -->
+      <div class="reveal-on-scroll border-t border-[var(--card-border)] pt-12">
+        <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-8 flex items-center gap-3">
+          <svg class="w-8 h-8 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+            </path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          Tools
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            class="glass-card p-4 flex flex-col items-center text-center hover:bg-[var(--card-bg-hover)] transition-colors group">
+            <span class="font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">VS Code</span>
+          </div>
+          <div
+            class="glass-card p-4 flex flex-col items-center text-center hover:bg-[var(--card-bg-hover)] transition-colors group">
+            <span class="font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">Git & GitHub</span>
+          </div>
+          <div
+            class="glass-card p-4 flex flex-col items-center text-center hover:bg-[var(--card-bg-hover)] transition-colors group">
+            <span class="font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">Postman / Burp</span>
+          </div>
+          <div
+            class="glass-card p-4 flex flex-col items-center text-center hover:bg-[var(--card-bg-hover)] transition-colors group">
+            <span class="font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">Azure / AWS</span>
+          </div>
         </div>
-        <div class="glass-card p-6">
-          <h4 class="font-bold mb-2">Programming & DB</h4>
-          <p class="text-[var(--text-muted)] text-sm">Python, SQL, MongoDB, HTML/CSS/JS</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Learning Section -->
+  <section class="py-24 relative bg-[var(--bg)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal-on-scroll">
+        <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-8">What I'm Learning Now</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[var(--text-muted)]">
+          <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span> Strengthening AI-driven automation workflows</li>
+          <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span> Exploring advanced testing strategies</li>
+          <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span> Expanding knowledge in defensive cybersecurity</li>
+          <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span> Learning cloud security patterns and IAM</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EXPERIENCE -->
+  <section id="experience" class="py-24 bg-[var(--card-bg)]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-12 reveal-on-scroll">
+        Experience
+      </h2>
+
+      <div class="space-y-8">
+        <!-- Student Manager -->
+        <div class="glass-card p-8 reveal-on-scroll hover:border-[var(--accent)] transition-colors">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-[var(--text)]">Student Manager</h3>
+              <p class="text-[var(--accent)] font-medium">Sri Balaji University, Pune</p>
+            </div>
+            <span class="text-sm text-[var(--text-muted)] bg-[var(--bg)] px-3 py-1 rounded-full border border-[var(--card-border)] mt-2 md:mt-0">Jul 2023 – Jul 2025</span>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Led coordination and execution of major institutional events, managed operations and facilitated student engagement.</p>
+        </div>
+
+        <!-- Corporate Relations -->
+        <div class="glass-card p-8 reveal-on-scroll hover:border-[var(--accent)] transition-colors">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-[var(--text)]">Corporate Relations Team Member</h3>
+              <p class="text-[var(--accent)] font-medium">Sri Balaji University, Pune</p>
+            </div>
+            <span class="text-sm text-[var(--text-muted)] bg-[var(--bg)] px-3 py-1 rounded-full border border-[var(--card-border)] mt-2 md:mt-0">Jan 2025 – Jul 2025</span>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Worked on outreach, internship & placement initiatives, and managed outreach databases and communications.</p>
+        </div>
+
+        <!-- Student Representative -->
+        <div class="glass-card p-8 reveal-on-scroll hover:border-[var(--accent)] transition-colors">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-[var(--text)]">Student Representative (Class Rep)</h3>
+            </div>
+            <span class="text-sm text-[var(--text-muted)] bg-[var(--bg)] px-3 py-1 rounded-full border border-[var(--card-border)] mt-2 md:mt-0">Jun 2023 – Jun 2024</span>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Coordinated with faculty on academic scheduling, attendance, and student concerns; represented class during academic meetings.</p>
+        </div>
+
+        <!-- Customer Executive -->
+        <div class="glass-card p-8 reveal-on-scroll hover:border-[var(--accent)] transition-colors">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-[var(--text)]">Customer Executive</h3>
+              <p class="text-[var(--accent)] font-medium">Conneqt Business Solutions (Quess Corp)</p>
+            </div>
+            <span class="text-sm text-[var(--text-muted)] bg-[var(--bg)] px-3 py-1 rounded-full border border-[var(--card-border)] mt-2 md:mt-0">May 2024 – Jun 2024</span>
+          </div>
+          <p class="text-[var(--text-muted)] mb-4">Handled customer queries, managed high-volume tasks, and supported service operations with clear communication.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="py-20 bg-[var(--card-bg)]">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-heading font-bold mb-8">Experience & Leadership</h2>
-      <div class="space-y-6">
-        <div class="glass-card p-6">
-          <p class="text-sm font-bold">Student Manager — Sri Balaji University</p>
-          <p class="text-[var(--text-muted)] text-sm">Jul 2023 – Jul 2025 — Coordinated events, technical programs and student teams.</p>
-        </div>
-        <div class="glass-card p-6">
-          <p class="text-sm font-bold">Corporate Relations Team Member — SBUP</p>
-          <p class="text-[var(--text-muted)] text-sm">Jan 2025 – Jul 2025 — Internship outreach and placements support.</p>
-        </div>
-        <div class="glass-card p-6">
-          <p class="text-sm font-bold">Student Representative (Class Rep)</p>
-          <p class="text-[var(--text-muted)] text-sm">Jun 2023 – Jun 2024</p>
-        </div>
+  <!-- 6. CONTACT -->
+  <section id="contact" class="py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center reveal-on-scroll">
+      <h2 class="font-heading text-3xl font-bold text-[var(--text)] mb-6">Let's Work Together</h2>
+      <p class="text-[var(--text-muted)] mb-8">
+        Whether you have a project in mind or just want to say hi, I'm always open to discussing new ideas.
+      </p>
+      <a href="mailto:pruthvirajsp1307@gmail.com" class="btn-primary px-8 py-3 rounded-lg font-semibold inline-block">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-[var(--card-border)]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-sm text-[var(--text-muted)]">
+        &copy; 2025 Pruthviraj Sarjerao Patil.
       </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="py-20">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-heading font-bold mb-6">Certifications</h2>
-      <ul class="list-disc pl-5 text-[var(--text-muted)] space-y-2">
-        <li>Microsoft Office Specialist (MOS) – Excel Expert</li>
-        <li>CCNA (prep)</li>
-        <li>Ethical Hacking Fundamentals — LinkedIn Learning</li>
-        <li>DevSecOps Foundations — LinkedIn Learning</li>
-        <li>Cloud Architecture Foundations — LinkedIn Learning</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-16 bg-[var(--card-bg)]">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-2xl font-bold">Get in touch</h3>
-      <p class="text-[var(--text-muted)] mt-2">Email: <a href="mailto:pruthvirajsp1307@gmail.com" class="text-[var(--accent)]">pruthvirajsp1307@gmail.com</a> • Phone: +91 9322798130</p>
-      <div class="mt-6 flex justify-center gap-4">
+      <div class="flex gap-6">
         <a href="https://github.com/shrreeeram" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text)]">GitHub</a>
         <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text)]">LinkedIn</a>
       </div>
     </div>
-  </section>
-
-  <footer class="py-8 border-t border-[var(--card-border)] text-center">
-    <div class="text-sm text-[var(--text-muted)]">© 2025 Pruthviraj Sarjerao Patil</div>
   </footer>
 
-  <!-- Animations -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
 </body>
+
 </html>
