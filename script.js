@@ -5,10 +5,8 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 const darkIcon = document.getElementById('theme-toggle-dark-icon');
 const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-// Get theme from localStorage
 const currentTheme = localStorage.getItem('theme');
 
-// Apply theme
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     lightIcon.classList.remove('hidden');
@@ -19,31 +17,29 @@ if (currentTheme === 'dark') {
     lightIcon.classList.add('hidden');
 }
 
-// Theme toggle button click
 if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', function () {
+    themeToggleBtn.addEventListener('click', () => {
         darkIcon.classList.toggle('hidden');
         lightIcon.classList.toggle('hidden');
 
-        if (document.documentElement.getAttribute('data-theme') === 'light') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+        const newTheme =
+            document.documentElement.getAttribute('data-theme') === 'light'
+                ? 'dark'
+                : 'light';
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
     });
 }
 
 // -----------------------------------------
-// LENIS SMOOTH SCROLL
+// LENIS SCROLL
 // -----------------------------------------
 const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 1.1,
     smooth: true,
-    mouseMultiplier: 1,
-    touchMultiplier: 2,
+    smoothTouch: true,
+    touchMultiplier: 1.5,
 });
 
 function raf(time) {
@@ -52,69 +48,62 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
+// LENIS + GSAP SYNC (MOST IMPORTANT)
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
 // -----------------------------------------
-// GSAP ANIMATIONS — SAFE MODE (NO DISAPPEARING SECTIONS)
+// GSAP SAFE ANIMATIONS
 // -----------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // HERO TEXT FADE IN
+    // HERO TEXT
     gsap.from(".animate-fade-in-up", {
         y: 20,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.1,
+        stagger: 0.15,
         ease: "power2.out",
         delay: 0.2
     });
 
-    // HERO IMAGE ANIMATION
+    // HERO IMAGE
     gsap.from(".hero-img-reveal", {
-        x: 30,
+        x: 35,
         opacity: 0,
         duration: 1,
-        ease: "power2.out",
+        ease: "power3.out",
         delay: 0.4
     });
 
-    // SECTION SCROLL REVEAL — FIXED VERSION
-    const elements = document.querySelectorAll(".reveal-on-scroll");
-    elements.forEach((el) => {
-        gsap.from(el, {
+    // SECTION REVEAL — FIXED VERSION
+    document.querySelectorAll(".reveal-on-scroll").forEach((elem) => {
+        gsap.from(elem, {
             scrollTrigger: {
-                trigger: el,
-                start: "top 90%",   // safer reveal point
-                toggleActions: "play none none none"
+                trigger: elem,
+                start: "top 90%",
+                toggleActions: "play none none none",
             },
             y: 20,
             opacity: 0,
             duration: 0.7,
-            ease: "power2.out"
+            ease: "power2.out",
         });
     });
 });
 
-// -----------------------------------------
-// ENSURE VISIBILITY (failsafe)
-// -----------------------------------------
-window.addEventListener("pageshow", () => {
+// FAILSAFE (so nothing stays invisible)
+setTimeout(() => {
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
         el.style.opacity = "1";
         el.style.transform = "none";
-        el.style.visibility = "visible";
     });
-});
-
-// Fallback after 500ms (Guarantee)
-setTimeout(() => {
-    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
-        if (getComputedStyle(el).opacity === "0") {
-            el.style.opacity = "1";
-            el.style.transform = "none";
-            el.style.visibility = "visible";
-        }
-    });
-}, 500);
+}, 600);
 
 // -----------------------------------------
 // MOBILE MENU
@@ -126,36 +115,20 @@ if (menuBtn && dropdownMenu) {
     menuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
-        const isHidden = dropdownMenu.classList.contains('hidden');
+        dropdownMenu.classList.toggle('hidden');
 
-        if (isHidden) {
-            dropdownMenu.classList.remove('hidden');
-            setTimeout(() => {
-                dropdownMenu.classList.remove('opacity-0', 'scale-95');
-                dropdownMenu.classList.add('opacity-100', 'scale-100');
-            }, 10);
-        } else {
-            dropdownMenu.classList.remove('opacity-100', 'scale-100');
-            dropdownMenu.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
-        }
-    });
-
-    dropdownMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            dropdownMenu.classList.remove('opacity-100', 'scale-100');
-            dropdownMenu.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
-        });
+        setTimeout(() => {
+            dropdownMenu.classList.toggle('opacity-0');
+            dropdownMenu.classList.toggle('scale-95');
+            dropdownMenu.classList.toggle('opacity-100');
+            dropdownMenu.classList.toggle('scale-100');
+        }, 10);
     });
 
     document.addEventListener('click', (e) => {
         if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            if (!dropdownMenu.classList.contains('hidden')) {
-                dropdownMenu.classList.remove('opacity-100', 'scale-100');
-                dropdownMenu.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
-            }
+            dropdownMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
         }
     });
 }
