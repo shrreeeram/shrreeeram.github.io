@@ -1,246 +1,162 @@
-// ===========================
-// script.js — Full replacement
-// Replace your old script.js with this file
-// ===========================
+// -----------------------------------------
+// THEME TOGGLE
+// -----------------------------------------
+const themeToggleBtn = document.getElementById('theme-toggle');
+const darkIcon = document.getElementById('theme-toggle-dark-icon');
+const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-/* mark that JS is active for CSS fallbacks */
-document.documentElement.classList.add('js');
+// Get theme from localStorage
+const currentTheme = localStorage.getItem('theme');
 
-'use strict';
+// Apply theme
+if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    lightIcon.classList.remove('hidden');
+    darkIcon.classList.add('hidden');
+} else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    darkIcon.classList.remove('hidden');
+    lightIcon.classList.add('hidden');
+}
 
-// small helpers
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+// Theme toggle button click
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', function () {
+        darkIcon.classList.toggle('hidden');
+        lightIcon.classList.toggle('hidden');
 
-// ------------- Theme Toggle (robust) -------------
-(function initThemeToggle() {
-  const themeToggleBtn = $('#theme-toggle');
-  const darkIcon = $('#theme-toggle-dark-icon');
-  const lightIcon = $('#theme-toggle-light-icon');
-
-  // helper to set icon visibility
-  const setIcons = (isDark) => {
-    if (darkIcon) darkIcon.classList.toggle('hidden', isDark === false);
-    if (lightIcon) lightIcon.classList.toggle('hidden', isDark === true);
-  };
-
-  const applyTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    setIcons(theme === 'dark');
-  };
-
-  // Read stored theme or use system preference
-  try {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') {
-      applyTheme(stored);
-    } else {
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      applyTheme(prefersDark ? 'dark' : 'light');
-    }
-  } catch (e) {
-    applyTheme('light');
-  }
-
-  if (!themeToggleBtn) return;
-
-  themeToggleBtn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    const next = current === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
-  });
-})();
-
-// ------------- Lenis (smooth scroll) + GSAP ScrollTrigger sync -------------
-(function initSmoothScrollAndGSAP() {
-  const hasLenis = typeof Lenis !== 'undefined';
-  const hasGSAP = typeof gsap !== 'undefined';
-  const hasScrollTrigger = hasGSAP && typeof ScrollTrigger !== 'undefined';
-
-  // Lenis initialization (if present)
-  let lenis = null;
-  if (hasLenis) {
-    try {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2
-      });
-
-      const raf = (time) => {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      };
-      requestAnimationFrame(raf);
-    } catch (e) {
-      // Lenis failed to initialize
-      lenis = null;
-    }
-  }
-
-  // If ScrollTrigger present, sync with lenis
-  if (hasScrollTrigger && lenis) {
-    try {
-      lenis.on('scroll', () => { try { ScrollTrigger.update(); } catch (err) {} });
-      ScrollTrigger.addEventListener('refresh', () => { if (lenis && typeof lenis.update === 'function') lenis.update(); });
-      ScrollTrigger.refresh();
-    } catch (e) {
-      // ignore sync errors
-    }
-  }
-})();
-
-// ------------- GSAP reveal animations (single-run) -------------
-(function initGSAPReveals() {
-  if (typeof gsap === 'undefined') {
-    // If GSAP not present, force reveal fallback after short delay
-    setTimeout(() => {
-      $$('.reveal-on-scroll, .animate-fade-in-up').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.visibility = 'visible';
-      });
-    }, 400);
-    return;
-  }
-
-  // register ScrollTrigger if available
-  if (typeof ScrollTrigger !== 'undefined') {
-    try { gsap.registerPlugin(ScrollTrigger); } catch (e) { /* ignore */ }
-  }
-
-  const revealConfig = {
-    y: 20,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.08,
-    ease: 'power2.out',
-    clearProps: 'all'
-  };
-
-  // Hero initial animations
-  const heroItems = $$('.animate-fade-in-up');
-  if (heroItems.length) {
-    gsap.from(heroItems, { ...revealConfig, duration: 0.8, stagger: 0.08, delay: 0.06 });
-  }
-
-  const heroImg = $('.hero-img-reveal');
-  if (heroImg) {
-    gsap.from(heroImg, { x: 20, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.25 });
-  }
-
-  // Scroll reveal for sections
-  if (typeof ScrollTrigger !== 'undefined') {
-    document.querySelectorAll('section').forEach((section) => {
-      if (section.id === 'home') return;
-      const children = section.querySelectorAll('.reveal-on-scroll');
-      if (children.length > 0) {
-        gsap.from(children, {
-          ...revealConfig,
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
-        });
-      }
-    });
-  }
-  
-  // Ensure elements visible again on pageshow / bfcache restore
-  window.addEventListener('pageshow', () => {
-    $$('.reveal-on-scroll, .animate-fade-in-up').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.visibility = 'visible';
-    });
-    try { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); } catch (e) {}
-  });
-})();
-
-// ------------- Dropdown / Mobile Menu Logic (robust) -------------
-(function initDropdownMenu() {
-  const menuBtn = $('#menu-btn');
-  const dropdownMenu = $('#dropdown-menu');
-  if (!menuBtn || !dropdownMenu) return;
-
-  const openMenu = () => {
-    dropdownMenu.classList.remove('hidden', 'opacity-0', 'scale-95');
-    requestAnimationFrame(() => {
-      dropdownMenu.classList.add('opacity-100', 'scale-100');
-    });
-  };
-
-  const closeMenu = () => {
-    dropdownMenu.classList.remove('opacity-100', 'scale-100');
-    dropdownMenu.classList.add('opacity-0', 'scale-95');
-    setTimeout(() => { dropdownMenu.classList.add('hidden'); }, 190);
-  };
-
-  menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isHidden = dropdownMenu.classList.contains('hidden');
-    if (isHidden) openMenu(); else closeMenu();
-  });
-
-  // Close when clicking links inside
-  dropdownMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-  // Close when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      if (!dropdownMenu.classList.contains('hidden')) closeMenu();
-    }
-  }, { passive: true });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !dropdownMenu.classList.contains('hidden')) closeMenu();
-  });
-})();
-
-// ------------- Fallback visibility guard -------------
-(function forceVisibilityFallback() {
-  setTimeout(() => {
-    $$('.reveal-on-scroll, .animate-fade-in-up').forEach(el => {
-      try {
-        const style = getComputedStyle(el);
-        if (style.opacity === '0' || style.visibility === 'hidden') {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-          el.style.visibility = 'visible';
+        if (document.documentElement.getAttribute('data-theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
-      } catch (e) {}
     });
-  }, 800);
-})();
+}
 
-// ------------- Debounced resize for ScrollTrigger refresh -------------
-(function initResizeRefresh() {
-  if (typeof ScrollTrigger === 'undefined') return;
-  let t;
-  window.addEventListener('resize', () => {
-    clearTimeout(t);
-    t = setTimeout(() => {
-      try { ScrollTrigger.refresh(); } catch (e) {}
-    }, 220);
-  });
-})();
+// -----------------------------------------
+// LENIS SMOOTH SCROLL
+// -----------------------------------------
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+    mouseMultiplier: 1,
+    touchMultiplier: 2,
+});
 
-// ------------- Accessibility touches -------------
-(function a11yTouches() {
-  const menuBtn = $('#menu-btn');
-  const dropdown = $('#dropdown-menu');
-  if (menuBtn && dropdown) {
-    const setAria = (open) => menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    const observer = new MutationObserver(() => setAria(!dropdown.classList.contains('hidden')));
-    observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
-    setAria(!dropdown.classList.contains('hidden'));
-  }
-})();
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// -----------------------------------------
+// GSAP ANIMATIONS — SAFE MODE (NO DISAPPEARING SECTIONS)
+// -----------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // HERO TEXT FADE IN
+    gsap.from(".animate-fade-in-up", {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        delay: 0.2
+    });
+
+    // HERO IMAGE ANIMATION
+    gsap.from(".hero-img-reveal", {
+        x: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.4
+    });
+
+    // SECTION SCROLL REVEAL — FIXED VERSION
+    const elements = document.querySelectorAll(".reveal-on-scroll");
+    elements.forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",   // safer reveal point
+                toggleActions: "play none none none"
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power2.out"
+        });
+    });
+});
+
+// -----------------------------------------
+// ENSURE VISIBILITY (failsafe)
+// -----------------------------------------
+window.addEventListener("pageshow", () => {
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+        el.style.visibility = "visible";
+    });
+});
+
+// Fallback after 500ms (Guarantee)
+setTimeout(() => {
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+        if (getComputedStyle(el).opacity === "0") {
+            el.style.opacity = "1";
+            el.style.transform = "none";
+            el.style.visibility = "visible";
+        }
+    });
+}, 500);
+
+// -----------------------------------------
+// MOBILE MENU
+// -----------------------------------------
+const menuBtn = document.getElementById('menu-btn');
+const dropdownMenu = document.getElementById('dropdown-menu');
+
+if (menuBtn && dropdownMenu) {
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        const isHidden = dropdownMenu.classList.contains('hidden');
+
+        if (isHidden) {
+            dropdownMenu.classList.remove('hidden');
+            setTimeout(() => {
+                dropdownMenu.classList.remove('opacity-0', 'scale-95');
+                dropdownMenu.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        } else {
+            dropdownMenu.classList.remove('opacity-100', 'scale-100');
+            dropdownMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
+        }
+    });
+
+    dropdownMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownMenu.classList.remove('opacity-100', 'scale-100');
+            dropdownMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            if (!dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.remove('opacity-100', 'scale-100');
+                dropdownMenu.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => dropdownMenu.classList.add('hidden'), 200);
+            }
+        }
+    });
+}
+
