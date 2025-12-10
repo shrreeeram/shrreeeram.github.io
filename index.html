@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" class="antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pruthviraj Sarjerao Patil — Cloud & Cybersecurity</title>
+  <meta name="description" content="Pruthviraj — Cloud Security Learner & Cybersecurity Enthusiast. Projects: Clickstream ETL, Ethical Crowdfunding Checker." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#1A73E8' },
+          fontFamily: { heading: ['Sora', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+
+  <!-- NAV -->
+  <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+    <nav class="nav-pill flex items-center gap-2 px-3 py-2 shadow-lg">
+      <a href="#home" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Home</a>
+      <a href="#about" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">About</a>
+      <a href="#projects" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Projects</a>
+      <a href="#skills" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Skills</a>
+      <a href="#experience" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Experience</a>
+      <a href="#contact" class="px-4 py-2 rounded-full text-sm hover:bg-[var(--card-bg)]">Contact</a>
+
+      <div class="w-px h-6 bg-[var(--card-border)] mx-2"></div>
+
+      <button id="theme-toggle" class="p-2 rounded-full" aria-label="Toggle Theme">
+        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        <svg id="theme-toggle-light-icon" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- LEFT -->
+      <div class="lg:col-span-7 order-2 lg:order-1 space-y-6">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Available for opportunities</span>
+        <h1 class="font-heading text-5xl md:text-6xl font-bold leading-tight">Hi, I'm <span class="text-[var(--accent)]">Pruthviraj</span></h1>
+        <h2 class="text-xl text-[var(--text-muted)] max-w-xl">Cloud Security Learner • Cybersecurity Enthusiast • Future IT Infrastructure Engineer</h2>
+        <p class="text-[var(--text-muted)] max-w-2xl leading-relaxed">I explore cloud technologies, cybersecurity, and ethical hacking to build secure and scalable systems. I enjoy turning technical concepts into practical security-driven solutions.</p>
+        <div class="flex gap-4">
+          <a href="mailto:pruthvirajsp1307@gmail.com" class="btn-primary px-6 py-3 rounded-lg font-semibold">Hire Me</a>
+          <a href="#" id="download-cv" class="btn-outline px-6 py-3 rounded-lg font-semibold">Download CV</a>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-[var(--text-muted)]">
+          <div class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a4 4 0 00-8 0v4"/></svg> Pune, India</div>
+          <div class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg> IST (UTC+5:30)</div>
+        </div>
+      </div>
+
+      <!-- RIGHT (image) -->
+      <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div class="relative max-w-[420px] w-full shadow-2xl rounded-2xl border border-[var(--card-border)] overflow-hidden hero-card">
+          <img src="assets/hero-pruthviraj.png" alt="Pruthviraj Patil" class="w-full h-auto block object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-7">
+        <h2 class="text-3xl font-heading font-bold">About Me</h2>
+        <p class="mt-4 text-[var(--text-muted)] leading-relaxed">I’m a multidisciplinary technology learner focused on Cloud Security, Cybersecurity Engineering, and Ethical Hacking. My practical work includes building projects like an Ethical Crowdfunding Checker and a Clickstream ETL pipeline. Leadership roles at university sharpened my communication and execution skills. I enjoy building secure, scalable systems and am seeking opportunities in Cloud Security and Cybersecurity engineering roles.</p>
+      </div>
+
+      <aside class="lg:col-span-5 space-y-4">
+        <div class="glass-card p-6">
+          <h3 class="font-bold">Education</h3>
+          <p class="text-[var(--text-muted)] mt-2">BCA — Sri Balaji University, Pune (Cloud Computing & Cyber Security)</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-bold">Languages</h3>
+          <p class="text-[var(--text-muted)] mt-2">English (Professional) • Marathi (Native) • Hindi • Ahirani</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20 bg-[var(--card-bg)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-heading font-bold mb-8">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <article class="glass-card p-8">
+          <span class="text-xs font-semibold text-[var(--accent)]">PMKVY Project</span>
+          <h3 class="text-2xl font-bold mt-2">Website Clickstream ETL Pipeline</h3>
+          <p class="text-[var(--text-muted)] mt-3">Built an ETL pipeline (AWS Glue / PySpark) to process clickstream logs, extract session info, and query data through Athena. Implemented robust logging and error handling for production reliability.</p>
+          <a href="https://github.com/shrreeeram/PMKVY-Project---Website-Clickstream-ETL-Pipeline" target="_blank" class="mt-4 inline-block text-[var(--accent)] font-semibold">View on GitHub →</a>
+        </article>
+
+        <article class="glass-card p-8">
+          <span class="text-xs font-semibold text-[var(--accent)]">Cybersecurity Mini Project</span>
+          <h3 class="text-2xl font-bold mt-2">Ethical Crowdfunding Checker</h3>
+          <p class="text-[var(--text-muted)] mt-3">A rule-based crowdfunding platform with fraud checks, admin approvals and web-scraping validation (Flask, Firebase, BeautifulSoup) designed to detect suspicious campaigns.</p>
+          <a href="https://github.com/shrreeeram/Ethical-Crowdfundung-Checker" target="_blank" class="mt-4 inline-block text-[var(--accent)] font-semibold">View on GitHub →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-heading font-bold mb-8">Core Skills</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card p-6">
+          <h4 class="font-bold mb-2">Cloud Technologies</h4>
+          <p class="text-[var(--text-muted)] text-sm">Azure (Core), AWS fundamentals, Cloud Architecture, Cloud Networking & Security, IAM</p>
+        </div>
+        <div class="glass-card p-6">
+          <h4 class="font-bold mb-2">Cybersecurity</h4>
+          <p class="text-[var(--text-muted)] text-sm">VAPT, Burp Suite, OWASP Top 10, Threat Analysis, Zero Trust basics</p>
+        </div>
+        <div class="glass-card p-6">
+          <h4 class="font-bold mb-2">Programming & DB</h4>
+          <p class="text-[var(--text-muted)] text-sm">Python, SQL, MongoDB, HTML/CSS/JS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-20 bg-[var(--card-bg)]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-heading font-bold mb-8">Experience & Leadership</h2>
+      <div class="space-y-6">
+        <div class="glass-card p-6">
+          <p class="text-sm font-bold">Student Manager — Sri Balaji University</p>
+          <p class="text-[var(--text-muted)] text-sm">Jul 2023 – Jul 2025 — Coordinated events, technical programs and student teams.</p>
+        </div>
+        <div class="glass-card p-6">
+          <p class="text-sm font-bold">Corporate Relations Team Member — SBUP</p>
+          <p class="text-[var(--text-muted)] text-sm">Jan 2025 – Jul 2025 — Internship outreach and placements support.</p>
+        </div>
+        <div class="glass-card p-6">
+          <p class="text-sm font-bold">Student Representative (Class Rep)</p>
+          <p class="text-[var(--text-muted)] text-sm">Jun 2023 – Jun 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-heading font-bold mb-6">Certifications</h2>
+      <ul class="list-disc pl-5 text-[var(--text-muted)] space-y-2">
+        <li>Microsoft Office Specialist (MOS) – Excel Expert</li>
+        <li>CCNA (prep)</li>
+        <li>Ethical Hacking Fundamentals — LinkedIn Learning</li>
+        <li>DevSecOps Foundations — LinkedIn Learning</li>
+        <li>Cloud Architecture Foundations — LinkedIn Learning</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 bg-[var(--card-bg)]">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold">Get in touch</h3>
+      <p class="text-[var(--text-muted)] mt-2">Email: <a href="mailto:pruthvirajsp1307@gmail.com" class="text-[var(--accent)]">pruthvirajsp1307@gmail.com</a> • Phone: +91 9322798130</p>
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="https://github.com/shrreeeram" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text)]">GitHub</a>
+        <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text)]">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-[var(--card-border)] text-center">
+    <div class="text-sm text-[var(--text-muted)]">© 2025 Pruthviraj Sarjerao Patil</div>
+  </footer>
+
+  <!-- Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</body>
+</html>
