@@ -40,74 +40,76 @@
 
 <body class="bg-[var(--bg)] text-[var(--text)] overflow-x-hidden">
 
-  <!-- Navigation (Glassmorphic Pill) -->
-  <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-    <div class="glass-nav flex items-center justify-between px-3 py-2 rounded-full transition-all duration-300">
-      <!-- Scrollable Links -->
-      <nav class="nav-scroll flex items-center gap-1 overflow-x-auto no-scrollbar mask-gradient">
-        <a href="#home"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Home</a>
-        <a href="#about"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">About</a>
-        <a href="#projects"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Projects</a>
-        <a href="#skills"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Skills</a>
-        <a href="#experience"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Experience</a>
-        <a href="#contact"
-          class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Contact</a>
-      </nav>
+   <!-- Navigation (Glassmorphic Pill) -->
+    <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="glass-nav flex items-center justify-between px-3 py-2 rounded-full transition-all duration-300">
+            <!-- Scrollable Links -->
+            <nav class="nav-scroll flex items-center gap-1 overflow-x-auto no-scrollbar mask-gradient">
+                <a href="#home"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Home</a>
+                <a href="#about"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">About</a>
+                <a href="#projects"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Projects</a>
+                <a href="#skills"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Skills</a>
+                <a href="#experience"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Experience</a>
+                <a href="#contact"
+                    class="px-4 py-2 text-sm font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap">Contact</a>
+            </nav>
 
-      <!-- Fixed Icons -->
-      <div class="flex items-center gap-2 pl-3 border-l border-black/10 dark:border-white/10 ml-2 flex-shrink-0">
-        <!-- Theme Toggle -->
-        <button id="theme-toggle"
-          class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
-          aria-label="Toggle Theme">
-          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414z" />
-          </svg>
-        </button>
+            <!-- Fixed Icons -->
+            <div class="flex items-center gap-2 pl-3 border-l border-black/10 dark:border-white/10 ml-2 flex-shrink-0">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+                    aria-label="Toggle Theme">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h1a1 1 0 100 2h-1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
 
-        <!-- Menu Toggle (3 Dots) -->
-        <div class="relative">
-          <button id="menu-btn"
-            class="nav-menu p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
-            aria-label="Toggle Menu">
-            <svg class="w-5 h-5 text-[var(--text)]" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-            </svg>
-          </button>
+                <!-- Menu Toggle (3 Dots) -->
+                <div class="relative">
+                    <button id="menu-btn"
+                        class="nav-menu p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+                        aria-label="Toggle Menu">
+                        <svg class="w-5 h-5 text-[var(--text)]" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg>
+                    </button>
 
-          <!-- Dropdown Menu -->
-          <div id="dropdown-menu"
-            class="hidden absolute right-0 top-12 w-48 glass-card py-2 shadow-xl border border-white/20 dark:border-white/10 transform origin-top-right transition-all duration-200 opacity-0 scale-95 z-50">
-            <a href="#home"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Home</a>
-            <a href="#about"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">About</a>
-            <a href="#skills"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Skills</a>
-            <a href="#projects"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Projects</a>
-            <a href="#experience"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Experience</a>
-            <a href="#contact"
-              class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Contact</a>
-            <div class="h-px bg-[var(--card-border)] my-1"></div>
-            <a href="assets/Pruthviraj_CV.pdf" target="_blank"
-              class="block px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Download
-              CV</a>
-          </div>
+                    <!-- Dropdown Menu -->
+                    <div id="dropdown-menu"
+                        class="hidden absolute right-0 top-12 w-48 glass-card py-2 shadow-xl border border-white/20 dark:border-white/10 transform origin-top-right transition-all duration-200 opacity-0 scale-95 z-50">
+                        <a href="#home"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Home</a>
+                        <a href="#about"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">About</a>
+                        <a href="#skills"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Skills</a>
+                        <a href="#projects"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Projects</a>
+                        <a href="#experience"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Experience</a>
+                        <a href="#contact"
+                            class="block px-4 py-2 text-sm text-[var(--text)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Contact</a>
+                        <div class="h-px bg-[var(--card-border)] my-1"></div>
+                        <a href="https://drive.google.com/file/d/1I3s3RNRt7gL2_WkbjgEQ_X9CzO0G7N_j/view?usp=drive_link
+" target="_blank" class="block px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Download
+                            CV</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
   <!-- Hero Section -->
   <section id="home" class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
