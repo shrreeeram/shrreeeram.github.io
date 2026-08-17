@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pruthviraj Patil | Azure Cloud Engineer & Cloud Support Specialist</title>
+  <meta name="description" content="Portfolio of Pruthviraj Patil - Azure Cloud Engineer, Cloud Support Specialist, Azure Administrator, and Junior DevOps Engineer." />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Pruthviraj Patil | Azure Cloud Engineer Portfolio" />
+  <meta property="og:description" content="Specialized in Microsoft Azure Administration, Linux SSH Hardening, Docker Containerization, GitHub Actions CI/CD, and Cloud IAM Security." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            azure: {
+              50: '#F0F9FF',
+              100: '#E0F2FE',
+              500: '#0284C7',
+              600: '#0078D4',
+              700: '#0369A1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Sora', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body class="bg-[var(--bg)] text-[var(--text)] min-h-screen transition-colors duration-300 antialiased overflow-x-hidden">
+
+  <!-- =========================================================================
+       1. NAVIGATION (Glassmorphic Command Header + Responsive Mobile Menu)
+       ========================================================================= -->
+  <header class="glass-nav-container">
+    <nav class="glass-nav relative">
+      <!-- Logo / Name -->
+      <a href="#home" class="flex items-center gap-2 px-3 py-1 font-heading text-lg font-bold tracking-tight text-[var(--text)] hover:text-[var(--azure-blue)] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full bg-[var(--azure-blue)] shadow-[0_0_8px_var(--azure-blue)]"></span>
+        Pruthviraj Patil
+      </a>
+
+      <!-- Desktop Nav Links (8 Exact Sections) -->
+      <div class="nav-links hidden lg:flex">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Action Buttons, Theme Switch & Mobile Menu Toggle -->
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h1a1 1 0 100 2h-1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <button id="menu-btn" class="lg:hidden p-2 rounded-full hover:bg-[var(--badge-azure-bg)] text-[var(--text)] transition-colors" aria-label="Toggle Navigation Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <a href="https://drive.google.com/file/d/1Fjjqzd1DkEjJN6GF-KCX76g3pA2FpM7V/view?usp=sharing" target="_blank" class="hidden sm:inline-flex btn-primary text-xs !py-2 !px-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Resume
+        </a>
+      </div>
+
+      <!-- Mobile Dropdown Navigation Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden absolute right-0 top-16 w-60 glass-card py-3 px-2 shadow-2xl border border-[var(--card-border)] flex-col gap-1 z-50">
+        <a href="#home" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Home</a>
+        <a href="#about" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">About</a>
+        <a href="#skills" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Skills</a>
+        <a href="#projects" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Projects</a>
+        <a href="#experience" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Experience</a>
+        <a href="#certifications" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Certifications</a>
+        <a href="#education" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Education</a>
+        <a href="#contact" class="mobile-nav-link block px-4 py-2 text-sm text-[var(--text)] hover:text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Contact</a>
+        <div class="h-px bg-[var(--card-border)] my-1"></div>
+        <a href="https://drive.google.com/file/d/1Fjjqzd1DkEjJN6GF-KCX76g3pA2FpM7V/view?usp=sharing" target="_blank" class="block px-4 py-2 text-sm font-semibold text-[var(--azure-blue)] hover:bg-[var(--badge-azure-bg)] rounded-lg">Download Resume ↗</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- =========================================================================
+       1. HERO SECTION (#home)
+       ========================================================================= -->
+  <section id="home" class="min-h-screen pt-36 pb-20 px-6 flex items-center justify-center relative z-10 bg-[var(--bg)]">
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Hero Column (Content) -->
+      <div class="lg:col-span-7 space-y-7 order-2 lg:order-1">
+        <!-- Status Badge -->
+        <div>
+          <span class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--badge-azure-bg)] border border-[var(--badge-azure-border)] text-[var(--azure-blue)] text-xs font-semibold tracking-wide">
+            <span class="status-indicator status-online"></span>
+            Available for Azure Cloud & DevOps Roles • AZ-104 Scheduled
+          </span>
+        </div>
+
+        <!-- Main Title & Target Roles -->
+        <div class="space-y-3">
+          <h1 class="font-heading text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--text)]">
+            Hi, I'm <span class="text-gradient">Pruthviraj Patil</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl font-semibold text-[var(--azure-blue)] flex flex-wrap gap-2 items-center">
+            <span>Azure Cloud Engineer</span>
+            <span class="text-[var(--text-dim)]">•</span>
+            <span>Cloud Support Specialist</span>
+            <span class="text-[var(--text-dim)]">•</span>
+            <span>Azure Administrator</span>
+          </h2>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="text-base md:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl">
+          BCA graduate specializing in <strong>Cloud Computing and Security</strong> with hands-on experience in <strong>Microsoft Azure Administration (AZ-104 / AZ-900)</strong>, Linux SSH hardening, Docker containerization, GitHub Actions CI/CD pipelines, and Cloud IAM/Security. Passionate about building secure, deployment-ready cloud infrastructure and resolving complex cloud operational issues.
+        </p>
+
+        <!-- Cloud Infrastructure Traffic Flow Banner -->
+        <div class="arch-diagram-box my-4 max-w-2xl">
+          <span class="text-[11px] font-bold text-[var(--azure-blue)] block mb-2 font-mono">Infrastructure Traffic Flow:</span>
+          <div class="flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="arch-flow-node">Azure Cloud</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">VNet Subnet</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">NSG Firewall</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">Virtual Machine</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">App Gateway</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">Docker / ACR</span>
+            <span class="arch-flow-arrow">➔</span>
+            <span class="arch-flow-node">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- Target Roles Tags Row -->
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="tech-pill">Azure IaaS & VMs</span>
+          <span class="tech-pill">VNet Peering & NSGs</span>
+          <span class="tech-pill">App Gateway (Layer 7)</span>
+          <span class="tech-pill">Docker & ACR/ACI</span>
+          <span class="tech-pill">GitHub Actions CI/CD</span>
+          <span class="tech-pill">Linux SSH Hardening</span>
+          <span class="tech-pill">IAM & RBAC Governance</span>
+        </div>
+
+        <!-- Location & Status Pills -->
+        <div class="flex flex-wrap items-center gap-6 text-sm text-[var(--text-muted)] font-medium pt-2">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[var(--azure-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            Pune, Maharashtra, India
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[var(--azure-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+            </svg>
+            BCA Cloud Computing & Security (CGPA: 8.0/10)
+          </div>
+        </div>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#projects" class="btn-primary">
+            Explore Infrastructure Projects
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+          <a href="https://drive.google.com/file/d/1Fjjqzd1DkEjJN6GF-KCX76g3pA2FpM7V/view?usp=sharing" target="_blank" class="btn-secondary">
+            Download Resume ↗
+          </a>
+        </div>
+
+        <!-- Social Connections -->
+        <div class="flex items-center gap-5 pt-4 text-[var(--text-muted)]">
+          <a href="https://github.com/shrreeeram" target="_blank" class="hover:text-[var(--azure-blue)] transition-colors" aria-label="GitHub">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank" class="hover:text-[var(--azure-blue)] transition-colors" aria-label="LinkedIn">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="mailto:pruthvirajsp1307@gmail.com" class="hover:text-[var(--azure-blue)] transition-colors" aria-label="Email">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Hero Column (Uploaded Professional Suit Photo + Live Cloud Infrastructure Status Card) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
+        <div class="relative w-full max-w-[380px] space-y-4">
+          <!-- Profile Card featuring Real Suit Photograph with Guaranteed Visibility -->
+          <div class="profile-photo-frame p-2">
+            <img src="profile.jpg" alt="Pruthviraj Patil" class="profile-photo-img" onerror="this.src='hero.png'" />
+          </div>
+
+          <!-- Live Cloud Infrastructure Status Widget -->
+          <div class="cloud-status-widget">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-[var(--card-border)]">
+              <div class="flex items-center gap-2">
+                <span class="status-indicator status-online"></span>
+                <span class="font-bold text-[var(--text)] text-xs">Azure Sub: Enterprise Prod</span>
+              </div>
+              <span class="text-[10px] text-[var(--azure-blue)] font-bold">AZ-104 Ready</span>
+            </div>
+            
+            <div class="space-y-1.5 text-[11px] text-[var(--text-muted)]">
+              <div class="flex justify-between items-center">
+                <span>Azure Infrastructure:</span>
+                <span class="text-emerald-500 font-bold">VMs • VNets • NSG</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>DevOps & Containers:</span>
+                <span class="text-emerald-500 font-bold">Docker • CI/CD • ACR/ACI</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Cloud Security & IAM:</span>
+                <span class="text-emerald-500 font-bold">RBAC • Entra ID • SSH</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Deployment Workflow:</span>
+                <span class="text-emerald-500 font-bold">GitHub Actions Passed ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       2. ABOUT ME SECTION (#about)
+       ========================================================================= -->
+  <section id="about" class="py-24 relative bg-[var(--bg-alt)] border-y border-[var(--card-border)]">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Column: Biography & Verified Metrics -->
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="section-title-badge">Background & Capabilities</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)]">About Me</h2>
+        </div>
+
+        <div class="space-y-4 text-[var(--text-muted)] leading-relaxed text-base">
+          <p>
+            I am a <strong>Bachelor of Computer Applications (BCA)</strong> graduate specializing in <strong>Cloud Computing and Security</strong> from Sri Balaji University, Pune (SBUP) with a CGPA of <strong>8.0 / 10</strong>.
+          </p>
+          <p>
+            With <strong>40+ hours of hands-on Azure Administration training</strong> and 2 industry internships, I specialize in provisioning, configuring, and supporting Microsoft Azure cloud infrastructure. My work includes configuring Virtual Networks (VNets), Network Security Groups (NSGs), VNet Peering, Azure App Service with Application Gateway (Layer 7), Azure Container Registry (ACR), and Azure Container Instances (ACI).
+          </p>
+          <p>
+            I have practical skills in <strong>Linux administration (SSH key hardening, custom ports, Apache TLS 1.2)</strong>, <strong>GitHub Actions CI/CD pipeline automation</strong>, <strong>Identity & Access Management (IAM & RBAC)</strong>, and cloud support troubleshooting.
+          </p>
+        </div>
+
+        <!-- Verified Resume Statistics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+          <div class="glass-card p-4 text-center card-glow-accent">
+            <span class="font-heading font-extrabold text-2xl text-[var(--azure-blue)]">40+ Hrs</span>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 font-semibold">Azure Admin Training</p>
+          </div>
+          <div class="glass-card p-4 text-center card-glow-accent">
+            <span class="font-heading font-extrabold text-2xl text-emerald-500">8.0 / 10</span>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 font-semibold">BCA Cloud CGPA</p>
+          </div>
+          <div class="glass-card p-4 text-center card-glow-accent">
+            <span class="font-heading font-extrabold text-2xl text-purple-500">2</span>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 font-semibold">Cloud Internships</p>
+          </div>
+          <div class="glass-card p-4 text-center card-glow-accent">
+            <span class="font-heading font-extrabold text-2xl text-amber-500">4</span>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 font-semibold">Azure Projects</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Leadership & Responsibility Timeline -->
+      <div class="lg:col-span-5">
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-[var(--azure-blue)]"></span>
+            <h3 class="font-heading text-lg font-bold text-[var(--text)]">Leadership & Institutional Roles</h3>
+          </div>
+
+          <div class="timeline-container space-y-6">
+            <div class="relative pl-6">
+              <span class="timeline-dot"></span>
+              <span class="text-xs font-mono font-bold text-[var(--azure-blue)]">Jan 2025 – Jul 2025</span>
+              <h4 class="text-sm font-bold text-[var(--text)] mt-0.5">Corporate Relations Team (CRT) Member</h4>
+              <p class="text-xs text-[var(--text-muted)]">Placement Cell | School of Computer Studies, SBUP</p>
+              <p class="text-[11px] text-[var(--text-dim)] mt-1">Managed corporate placement logistics and drive coordination.</p>
+            </div>
+
+            <div class="relative pl-6">
+              <span class="timeline-dot"></span>
+              <span class="text-xs font-mono font-bold text-[var(--azure-blue)]">Jun 2023 – Jun 2024</span>
+              <h4 class="text-sm font-bold text-[var(--text)] mt-0.5">Student Representative / Class Representative</h4>
+              <p class="text-xs text-[var(--text-muted)]">School of Computer Studies | SBUP</p>
+              <p class="text-[11px] text-[var(--text-dim)] mt-1">Liaised between faculty and 60+ computer science students.</p>
+            </div>
+
+            <div class="relative pl-6">
+              <span class="timeline-dot"></span>
+              <span class="text-xs font-mono font-bold text-[var(--azure-blue)]">Jul 2023 – Apr 2024</span>
+              <h4 class="text-sm font-bold text-[var(--text)] mt-0.5">Student Manager</h4>
+              <p class="text-xs text-[var(--text-muted)]">Sri Balaji University, Pune (SBUP)</p>
+              <p class="text-[11px] text-[var(--text-dim)] mt-1">Supervised campus events, technical symposiums, and student engagement.</p>
+            </div>
+
+            <div class="relative pl-6">
+              <span class="timeline-dot"></span>
+              <span class="text-xs font-mono font-bold text-[var(--azure-blue)]">AY 2023 – 2024</span>
+              <h4 class="text-sm font-bold text-[var(--text)] mt-0.5">Student Council Member</h4>
+              <p class="text-xs text-[var(--text-muted)]">Sri Balaji University, Pune (Appreciation Letter Received)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. TECHNICAL SKILLS ARCHITECTURE SECTION (#skills)
+       ========================================================================= -->
+  <section id="skills" class="py-24 relative bg-[var(--bg)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title & Filter Controls -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="section-title-badge">Technical Stack</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mb-4">Core Skills Architecture</h2>
+        <p class="text-[var(--text-muted)] text-base">
+          Organized into 6 core technical domains based strictly on verified resume capabilities.
+        </p>
+
+        <!-- Interactive Category Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <button class="filter-btn active" data-filter="all">All Skills</button>
+          <button class="filter-btn" data-filter="cloud">Cloud & Azure</button>
+          <button class="filter-btn" data-filter="devops">DevOps & CI/CD</button>
+          <button class="filter-btn" data-filter="security">Security & IAM</button>
+          <button class="filter-btn" data-filter="support">Cloud Support & OS</button>
+          <button class="filter-btn" data-filter="prog">Programming & DBs</button>
+        </div>
+      </div>
+
+      <!-- 6 Skill Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Cloud Platforms -->
+        <div class="glass-card skill-card card-glow-accent" data-category="cloud support">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-[var(--badge-azure-bg)] text-[var(--azure-blue)]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">Cloud Platforms</h3>
+              <span class="text-xs text-[var(--azure-blue)] font-mono">Primary Focus</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--azure-blue)]"></span><strong>Microsoft Azure:</strong> VM, VNet, NSG, App Service</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--azure-blue)]"></span><strong>Azure Containers:</strong> ACR, ACI, Web App</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--azure-blue)]"></span><strong>Networking:</strong> App Gateway (L7), VNet Peering</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--azure-blue)]"></span><strong>Amazon Web Services:</strong> EC2, S3 Fundamentals</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--azure-blue)]"></span><strong>Google Cloud:</strong> GCP Fundamentals</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-[var(--azure-blue)] font-bold">
+            <span>Flow: Azure ➔ VM ➔ VNet ➔ NSG</span>
+          </div>
+        </div>
+
+        <!-- 2. Cloud Security & IAM -->
+        <div class="glass-card skill-card card-glow-accent" data-category="security cloud">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-red-500/10 text-red-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">Cloud Security & IAM</h3>
+              <span class="text-xs text-red-500 font-mono">Security First</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><strong>Identity Access:</strong> IAM, RBAC, Entra ID</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><strong>Linux Security:</strong> SSH Hardening, Key Auth</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><strong>Web Security:</strong> TLS 1.2, HTTPS, JWT Auth</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><strong>App Security:</strong> OWASP Top 10, VAPT, Secure SDLC</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><strong>Firewalls:</strong> NSG Rules, Custom Ports</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-red-400 font-bold">
+            <span>Flow: Entra ID ➔ RBAC ➔ SSH Key Auth</span>
+          </div>
+        </div>
+
+        <!-- 3. DevOps & CI/CD -->
+        <div class="glass-card skill-card card-glow-accent" data-category="devops cloud">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">DevOps & Automation</h3>
+              <span class="text-xs text-purple-500 font-mono">CI/CD Pipelines</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span><strong>Containerization:</strong> Docker, Docker Hub</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span><strong>Azure Registry:</strong> ACR (Azure Container Registry)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span><strong>Azure Compute:</strong> ACI (Azure Container Instances)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span><strong>CI/CD Workflows:</strong> GitHub Actions Automation</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span><strong>Orchestration:</strong> Kubernetes (Basics)</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-purple-400 font-bold">
+            <span>Flow: Docker ➔ ACR ➔ ACI ➔ GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- 4. Cloud Support & Operations -->
+        <div class="glass-card skill-card card-glow-accent" data-category="support cloud">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">Cloud Support & Operations</h3>
+              <span class="text-xs text-emerald-500 font-mono">Troubleshooting</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><strong>VM Provisioning:</strong> Azure VM IaaS Setup</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><strong>IAM Diagnostics:</strong> RBAC Access & Permissions</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><strong>SSH Debugging:</strong> Key Exchange & Connection Timeouts</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><strong>HTTPS Setup:</strong> TLS Certificate Configuration</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><strong>Deployment Support:</strong> Zero Downtime Rollouts</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 font-bold">
+            <span>Flow: VM Setup ➔ SSH Debug ➔ Zero Downtime</span>
+          </div>
+        </div>
+
+        <!-- 5. Linux & Networking -->
+        <div class="glass-card skill-card card-glow-accent" data-category="support security">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">Linux & Networking</h3>
+              <span class="text-xs text-cyan-500 font-mono">OS & Protocol Level</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><strong>Linux OS:</strong> Ubuntu Administration & CLI</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><strong>Scripting:</strong> Bash Shell Automation</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><strong>Networking:</strong> TCP/IP, DNS, Subnetting</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><strong>Web Servers:</strong> Apache Web Server</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><strong>Tools:</strong> Git, Postman API Testing, Nmap</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-cyan-400 font-bold">
+            <span>Flow: Ubuntu ➔ Bash ➔ Apache ➔ Firewall</span>
+          </div>
+        </div>
+
+        <!-- 6. Programming & Databases -->
+        <div class="glass-card skill-card card-glow-accent" data-category="prog">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-[var(--text)]">Programming & DBs</h3>
+              <span class="text-xs text-amber-500 font-mono">Development</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-[var(--text-muted)] mb-4">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><strong>Programming:</strong> Python, REST APIs</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><strong>Web Frameworks:</strong> Flask, FastAPI</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><strong>NoSQL DB:</strong> MongoDB Atlas</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><strong>Relational DB:</strong> MS SQL Server</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><strong>Version Control:</strong> Git & GitHub Workflows</li>
+          </ul>
+          <div class="pt-3 border-t border-[var(--card-border)] flex items-center gap-1.5 text-[11px] font-mono text-amber-400 font-bold">
+            <span>Flow: Python ➔ Flask/FastAPI ➔ MongoDB</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Supporting AI Skill Highlight Card -->
+      <div class="mt-8 glass-card card-glow-accent p-6 bg-[var(--badge-azure-bg)] border-[var(--badge-azure-border)]">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">✨</span>
+            <div>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Supporting Achievement: Generative AI & Vertex AI Workshop</h4>
+              <p class="text-xs text-[var(--text-muted)]">Google Cloud & SmartBridge — Hands-on training on Vertex AI, LLM APIs, and Generative AI fundamentals.</p>
+            </div>
+          </div>
+          <span class="tech-pill tech-pill-purple whitespace-nowrap">Supporting Skill</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. CLOUD & DEVOPS PROJECTS SECTION (#projects)
+       ========================================================================= -->
+  <section id="projects" class="py-24 relative bg-[var(--bg-alt)] border-y border-[var(--card-border)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-title-badge">Hands-On Implementations</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mb-4">Cloud & DevOps Projects</h2>
+        <p class="text-[var(--text-muted)] text-base">
+          Production-style Azure infrastructure, VNet peering, container orchestration, and Linux security implementations.
+        </p>
+      </div>
+
+      <!-- 4 Projects Grid (2x2 Layout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Project 1: Azure Web App Deployment with Application Gateway -->
+        <div class="glass-card card-glow-accent p-8 flex flex-col justify-between group">
+          <div>
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="tech-pill">Azure Infrastructure</span>
+              <span class="text-xs font-mono text-[var(--text-dim)]">May 2026 – Jul 2026</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-heading text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--azure-blue)] transition-colors">
+              Azure Web App Deployment with Application Gateway
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+              Deployed a containerized React application on <strong>Azure App Service</strong> fronted by an <strong>Azure Application Gateway (Layer 7 Load Balancer)</strong>. Configured backend pools, listeners, custom health probes, and Docker Hub container integration across Virtual Networks for robust HTTP/HTTPS traffic routing.
+            </p>
+
+            <!-- Technical Achievements Bullet Points -->
+            <ul class="space-y-2 text-xs text-[var(--text-muted)] mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Configured Layer 7 Application Gateway listeners and backend pools.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Integrated container images from Docker Hub into Azure App Service.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Validated end-to-end multi-tier network connectivity and health probes.</span>
+              </li>
+            </ul>
+
+            <!-- Resource Architecture Diagram Visualizer Snippet -->
+            <div class="arch-diagram-box mb-6">
+              <span class="text-[11px] font-bold text-[var(--azure-blue)] block mb-2">Resource Architecture Flow:</span>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="arch-flow-node">Client (HTTPS)</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">App Gateway (L7)</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Azure VNet</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Azure App Service</span>
+              </div>
+            </div>
+
+            <!-- Azure Tech Pills -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-pill text-[11px]">Azure App Service</span>
+              <span class="tech-pill text-[11px]">Azure Application Gateway</span>
+              <span class="tech-pill text-[11px]">Azure VNet</span>
+              <span class="tech-pill text-[11px]">Docker Hub</span>
+            </div>
+
+            <!-- Expand Details Drawer Button -->
+            <button class="toggle-project-btn w-full text-left py-2 px-3 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] text-xs font-bold flex items-center justify-between transition-colors mb-4" data-target="project-drawer-1">
+              <span>Expand Details & Architecture Diagram</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+
+            <!-- Hidden Expandable Drawer Content -->
+            <div id="project-drawer-1" class="hidden text-xs text-[var(--text-muted)] space-y-3 p-4 bg-[var(--bg-alt)] rounded-lg border border-[var(--card-border)] mb-4">
+              <p><strong>Deployment Methodology:</strong> Provisioned Azure App Service Plan with Linux container support. Connected Azure Application Gateway with WAF capabilities, configuring SSL termination and rule-based path routing.</p>
+              <p><strong>Verification:</strong> Validated connection resilience using Apache Benchmark and tested backend pool failover behaviors during simulated VM maintenance.</p>
+            </div>
+          </div>
+
+          <!-- GitHub Link -->
+          <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
+            <a href="https://github.com/shrreeeram" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[var(--azure-blue)] hover:underline">
+              <span>View Repository on GitHub</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="text-[10px] font-mono text-emerald-500 font-bold">Layer 7 Load Balanced</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Azure VNet Peering Between Two Virtual Machines -->
+        <div class="glass-card card-glow-accent p-8 flex flex-col justify-between group">
+          <div>
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="tech-pill">Cloud Networking</span>
+              <span class="text-xs font-mono text-[var(--text-dim)]">May 2026 – Jul 2026</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-heading text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--azure-blue)] transition-colors">
+              Azure VNet Peering Between Two Virtual Machines
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+              Configured non-transitive <strong>Azure VNet Peering</strong> between two isolated Virtual Networks to enable secure, low-latency private IP communication across Azure VMs. Implemented Network Security Group (NSG) ingress/egress rules and validated SSH/RDP connectivity.
+            </p>
+
+            <!-- Technical Achievements Bullet Points -->
+            <ul class="space-y-2 text-xs text-[var(--text-muted)] mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Configured VNet Peering between distinct Azure Virtual Networks.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Restricted inbound/outbound traffic using NSG rules and private IPs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Tested private IP SSH/RDP routing without public IP exposure.</span>
+              </li>
+            </ul>
+
+            <!-- Resource Architecture Diagram Visualizer Snippet -->
+            <div class="arch-diagram-box mb-6">
+              <span class="text-[11px] font-bold text-[var(--azure-blue)] block mb-2">Resource Architecture Flow:</span>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="arch-flow-node">Azure VM 1 (VNet A)</span>
+                <span class="arch-flow-arrow">◄═ Peering ═►</span>
+                <span class="arch-flow-node">Azure VM 2 (VNet B)</span>
+              </div>
+            </div>
+
+            <!-- Azure Tech Pills -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-pill text-[11px]">Azure VMs</span>
+              <span class="tech-pill text-[11px]">Azure Virtual Network</span>
+              <span class="tech-pill text-[11px]">VNet Peering</span>
+              <span class="tech-pill text-[11px]">NSG Security Rules</span>
+            </div>
+
+            <!-- Expand Details Drawer Button -->
+            <button class="toggle-project-btn w-full text-left py-2 px-3 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] text-xs font-bold flex items-center justify-between transition-colors mb-4" data-target="project-drawer-2">
+              <span>Expand Details & Architecture Diagram</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+
+            <!-- Hidden Expandable Drawer Content -->
+            <div id="project-drawer-2" class="hidden text-xs text-[var(--text-muted)] space-y-3 p-4 bg-[var(--bg-alt)] rounded-lg border border-[var(--card-border)] mb-4">
+              <p><strong>Networking Setup:</strong> Provisioned VNet-1 (10.1.0.0/16) and VNet-2 (10.2.0.0/16). Established bi-directional VNet Peering with 'Allow Virtual Network Access' enabled.</p>
+              <p><strong>Security Verification:</strong> Attached NSGs blocking port 22/3389 from public internet while allowing internal 10.0.0.0/8 traffic over private SSH.</p>
+            </div>
+          </div>
+
+          <!-- GitHub Link -->
+          <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
+            <a href="https://github.com/shrreeeram" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[var(--azure-blue)] hover:underline">
+              <span>View Repository on GitHub</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="text-[10px] font-mono text-emerald-500 font-bold">Private Routing Verified</span>
+          </div>
+        </div>
+
+        <!-- Project 3: REALITY-X - Secure Cloud AI Platform -->
+        <div class="glass-card card-glow-accent p-8 flex flex-col justify-between group">
+          <div>
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="tech-pill tech-pill-purple">DevOps & Containers</span>
+              <span class="text-xs font-mono text-[var(--text-dim)]">Feb 2026 – Apr 2026</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-heading text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--azure-blue)] transition-colors">
+              REALITY-X – Secure Cloud AI Platform
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+              Built a cloud-native RESTful AI microservice with FastAPI, YOLOv8 inference, JWT authentication, and bcrypt password hashing. Containerized with Docker and published image pipelines to <strong>Azure Container Registry (ACR)</strong> and <strong>Azure Container Instances (ACI)</strong> paired with MongoDB Atlas.
+            </p>
+
+            <!-- Technical Achievements Bullet Points -->
+            <ul class="space-y-2 text-xs text-[var(--text-muted)] mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Dockerized FastAPI microservice with custom environment configs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Pushed container images to Azure ACR & deployed on Azure ACI.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Secured REST API endpoints with JWT bearer token authentication.</span>
+              </li>
+            </ul>
+
+            <!-- Resource Architecture Diagram Visualizer Snippet -->
+            <div class="arch-diagram-box mb-6">
+              <span class="text-[11px] font-bold text-[var(--azure-blue)] block mb-2">Resource Architecture Flow:</span>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="arch-flow-node">FastAPI App</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Docker Image</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Azure ACR</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Azure ACI</span>
+              </div>
+            </div>
+
+            <!-- Azure Tech Pills -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-pill text-[11px]">Azure ACR</span>
+              <span class="tech-pill text-[11px]">Azure ACI</span>
+              <span class="tech-pill text-[11px]">Docker</span>
+              <span class="tech-pill text-[11px]">JWT Security</span>
+              <span class="tech-pill text-[11px]">MongoDB Atlas</span>
+            </div>
+
+            <!-- Expand Details Drawer Button -->
+            <button class="toggle-project-btn w-full text-left py-2 px-3 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] text-xs font-bold flex items-center justify-between transition-colors mb-4" data-target="project-drawer-3">
+              <span>Expand Details & Architecture Diagram</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+
+            <!-- Hidden Expandable Drawer Content -->
+            <div id="project-drawer-3" class="hidden text-xs text-[var(--text-muted)] space-y-3 p-4 bg-[var(--bg-alt)] rounded-lg border border-[var(--card-border)] mb-4">
+              <p><strong>Microservice Architecture:</strong> Integrated FastAPI REST endpoints serving YOLOv8 object classification. Encrypted passwords via bcrypt and managed session auth with JSON Web Tokens.</p>
+              <p><strong>Cloud Container Deployment:</strong> Built automated Docker images, authenticated Azure CLI to push images to ACR, and instantiated container groups on ACI linked to MongoDB Atlas cloud DB.</p>
+            </div>
+          </div>
+
+          <!-- GitHub Link -->
+          <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
+            <a href="https://github.com/shrreeeram/AI-Object-Detection-System" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[var(--azure-blue)] hover:underline">
+              <span>View Repository on GitHub</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="text-[10px] font-mono text-purple-500 font-bold">Containerized Microservice</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Secure Azure Linux VM - SSH Hardening & HTTPS -->
+        <div class="glass-card card-glow-accent p-8 flex flex-col justify-between group">
+          <div>
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="tech-pill tech-pill-emerald">Linux & Cloud Security</span>
+              <span class="text-xs font-mono text-[var(--text-dim)]">Jan 2026 – Feb 2026</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-heading text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-[var(--azure-blue)] transition-colors">
+              Secure Azure Linux VM – SSH Hardening & HTTPS
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+              Hardened an Azure Ubuntu Linux VM by disabling password & root SSH login, changing default SSH ports, and enforcing SSH key-based authentication. Configured Apache web server with <strong>TLS 1.2</strong> and HTTPS-only redirect rules backed by Azure NSGs.
+            </p>
+
+            <!-- Technical Achievements Bullet Points -->
+            <ul class="space-y-2 text-xs text-[var(--text-muted)] mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Enforced SSH key pair authentication & disabled root password logins.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Configured Apache with TLS 1.2 certificates and HTTPS enforcement.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--azure-blue)] font-bold">✓</span>
+                <span>Applied restrictive Azure Network Security Group (NSG) inbound rules.</span>
+              </li>
+            </ul>
+
+            <!-- Resource Architecture Diagram Visualizer Snippet -->
+            <div class="arch-diagram-box mb-6">
+              <span class="text-[11px] font-bold text-[var(--azure-blue)] block mb-2">Resource Architecture Flow:</span>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="arch-flow-node">Client (TLS 1.2)</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">NSG Firewall</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Custom SSH Port</span>
+                <span class="arch-flow-arrow">➔</span>
+                <span class="arch-flow-node">Hardened Ubuntu VM</span>
+              </div>
+            </div>
+
+            <!-- Azure Tech Pills -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-pill text-[11px]">Azure VM</span>
+              <span class="tech-pill text-[11px]">Linux (Ubuntu)</span>
+              <span class="tech-pill text-[11px]">SSH Hardening</span>
+              <span class="tech-pill text-[11px]">TLS 1.2 / HTTPS</span>
+              <span class="tech-pill text-[11px]">NSG Firewall</span>
+            </div>
+
+            <!-- Expand Details Drawer Button -->
+            <button class="toggle-project-btn w-full text-left py-2 px-3 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] text-xs font-bold flex items-center justify-between transition-colors mb-4" data-target="project-drawer-4">
+              <span>Expand Details & Architecture Diagram</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+
+            <!-- Hidden Expandable Drawer Content -->
+            <div id="project-drawer-4" class="hidden text-xs text-[var(--text-muted)] space-y-3 p-4 bg-[var(--bg-alt)] rounded-lg border border-[var(--card-border)] mb-4">
+              <p><strong>OS Hardening Steps:</strong> Modified `/etc/ssh/sshd_config` to disable PasswordAuthentication and PermitRootLogin. Created ed25519 SSH keys for authorized admins.</p>
+              <p><strong>SSL & NSG Rules:</strong> Installed SSL certificates on Apache, enabled mod_rewrite for HTTP to HTTPS 301 redirects, and restricted NSG inbound rules strictly to HTTPS (443) and custom SSH port.</p>
+            </div>
+          </div>
+
+          <!-- GitHub Link -->
+          <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
+            <a href="https://github.com/shrreeeram/Secure-Azure-VM-Deployment" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[var(--azure-blue)] hover:underline">
+              <span>View Repository on GitHub</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="text-[10px] font-mono text-emerald-500 font-bold">CIS Hardened VM</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. WORK EXPERIENCE SECTION (#experience)
+       ========================================================================= -->
+  <section id="experience" class="py-24 relative bg-[var(--bg)]">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-title-badge">Industry Experience</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mb-4">Work Experience</h2>
+        <p class="text-[var(--text-muted)] text-base">
+          Hands-on cloud administration, IaaS provisioning, and CI/CD development experience across 2 internships.
+        </p>
+      </div>
+
+      <!-- Experience Cards Timeline -->
+      <div class="space-y-8">
+
+        <!-- Experience 1: Radical Technologies -->
+        <div class="glass-card card-glow-accent p-8">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 pb-4 border-b border-[var(--card-border)]">
+            <div>
+              <span class="tech-pill text-xs mb-2">Azure Administration & IaaS</span>
+              <h3 class="font-heading text-2xl font-bold text-[var(--text)]">Azure Cloud Intern</h3>
+              <p class="text-sm font-semibold text-[var(--azure-blue)]">Radical Technologies | Pune, Maharashtra</p>
+            </div>
+            <span class="text-xs font-mono font-semibold px-3 py-1.5 rounded-full bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] border border-[var(--badge-azure-border)]">
+              Feb 2026 – Aug 2026
+            </span>
+          </div>
+
+          <div class="space-y-3 text-sm text-[var(--text-muted)] leading-relaxed">
+            <p>
+              Completed <strong>40+ hours of hands-on Microsoft Azure Administration training</strong> covering AZ-900 and AZ-104 exam objectives, focusing on core Azure infrastructure services, security governance, and operational support.
+            </p>
+            <ul class="space-y-2 text-xs list-disc pl-5">
+              <li>Configured and managed Azure IaaS components including <strong>Azure VMs, Virtual Networks (VNets), Subnets, and Network Security Groups (NSGs)</strong>.</li>
+              <li>Implemented Identity & Access Management (IAM) and Role-Based Access Control (RBAC) governance using <strong>Microsoft Entra ID (Azure AD)</strong>.</li>
+              <li>Conducted virtual machine provisioning, SSH debugging, and cloud network diagnostic troubleshooting.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2: Passion Infotech Pvt Ltd -->
+        <div class="glass-card card-glow-accent p-8">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 pb-4 border-b border-[var(--card-border)]">
+            <div>
+              <span class="tech-pill tech-pill-purple text-xs mb-2">Azure App Service & CI/CD</span>
+              <h3 class="font-heading text-2xl font-bold text-[var(--text)]">Full Stack Cloud Developer Intern</h3>
+              <p class="text-sm font-semibold text-[var(--azure-blue)]">Passion Infotech Pvt Ltd | Pune, Maharashtra</p>
+            </div>
+            <span class="text-xs font-mono font-semibold px-3 py-1.5 rounded-full bg-[var(--badge-azure-bg)] text-[var(--azure-blue)] border border-[var(--badge-azure-border)]">
+              May 2025 – Aug 2025
+            </span>
+          </div>
+
+          <div class="space-y-3 text-sm text-[var(--text-muted)] leading-relaxed">
+            <p>
+              Developed and deployed a Flask-based fraud detection platform on <strong>Azure Web App</strong> with high availability and zero reported deployment downtime.
+            </p>
+            <ul class="space-y-2 text-xs list-disc pl-5">
+              <li>Automated build, test, and deployment workflows using <strong>GitHub Actions CI/CD pipelines</strong>, eliminating manual release friction.</li>
+              <li>Implemented rule-based validation algorithms, web scraping, and secure authentication following OWASP security guidelines.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. CERTIFICATIONS, WORKSHOPS & TRAINING SECTION (#certifications)
+       ========================================================================= -->
+  <section id="certifications" class="py-24 relative bg-[var(--bg-alt)] border-y border-[var(--card-border)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-title-badge">Credentials & Achievements</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mb-4">Certifications, Workshops & Training</h2>
+        <p class="text-[var(--text-muted)] text-base">
+          Clearly distinguished professional certifications, training programs, and supporting technical workshops.
+        </p>
+      </div>
+
+      <!-- Spotlight Feature: Professional Certification Track -->
+      <div class="glass-card card-glow-accent p-8 mb-12 bg-[var(--card-bg)]">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[var(--azure-blue)] shadow-[0_0_10px_var(--azure-blue)]"></span>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--azure-blue)]">Professional Certification Track</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-[var(--text)]">
+              Microsoft Azure Administrator Associate (AZ-104)
+            </h3>
+            <p class="text-sm text-[var(--text-muted)]">
+              Exam Scheduled: <strong>August 2026</strong> • Comprehensive hands-on preparation covering Azure identity, governance, storage, compute, and virtual networking objectives.
+            </p>
+          </div>
+          <span class="tech-pill text-xs !py-2 !px-4 font-bold whitespace-nowrap">
+            AZ-104 Exam Scheduled (Aug 2026)
+          </span>
+        </div>
+      </div>
+
+      <!-- Certifications & Training Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Radical Tech Azure Admin Training -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)]">📜</span>
+            <div>
+              <span class="text-[10px] font-mono text-[var(--azure-blue)] uppercase font-bold">Formal Training</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Microsoft Azure Admin - IaaS</h4>
+              <p class="text-xs text-[var(--text-dim)]">Radical Technologies (May 2026 – Jul 2026)</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">40+ hours hands-on Azure IaaS training covering AZ-900 & AZ-104 exam objectives.</p>
+        </div>
+
+        <!-- 2. Google Cloud Generative AI Workshop -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-purple-500/10 text-purple-500">✨</span>
+            <div>
+              <span class="text-[10px] font-mono text-purple-400 uppercase font-bold">Supporting Workshop</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Google Cloud Generative AI Workshop</h4>
+              <p class="text-xs text-[var(--text-dim)]">Google Cloud & SmartBridge (Jul 2026)</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Hands-on Generative AI, Vertex AI, and cloud AI API integration workshop.</p>
+        </div>
+
+        <!-- 3. CEHv13 EC-Council -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-red-500/10 text-red-500">🛡️</span>
+            <div>
+              <span class="text-[10px] font-mono text-red-400 uppercase font-bold">Security Training</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">CEHv13 - Complete Series (V1-4)</h4>
+              <p class="text-xs text-[var(--text-dim)]">EC-Council (In Progress)</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Ethical hacking, system vulnerabilities, perimeter security, and threat analysis.</p>
+        </div>
+
+        <!-- 4. Employability Skills Training -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">💼</span>
+            <div>
+              <span class="text-[10px] font-mono text-emerald-400 uppercase font-bold">Skill Program</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Employability Skills Training</h4>
+              <p class="text-xs text-[var(--text-dim)]">Skillsgenix (Apr 2026 – Jun 2026)</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Corporate communication, technical presentation, and team collaboration skills.</p>
+        </div>
+
+        <!-- 5. Cloud Infrastructure & Orchestration -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)]">🎓</span>
+            <div>
+              <span class="text-[10px] font-mono text-[var(--azure-blue)] uppercase font-bold">Academic Course</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Cloud Infrastructure & Orchestration</h4>
+              <p class="text-xs text-[var(--text-dim)]">Academic Coursework Certification</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Cloud resource management, container orchestration, and VM scaling principles.</p>
+        </div>
+
+        <!-- 6. InfoSec & Cryptography -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="p-2 rounded-lg bg-cyan-500/10 text-cyan-500">🔑</span>
+            <div>
+              <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Academic Course</span>
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">Information Security & Cryptography</h4>
+              <p class="text-xs text-[var(--text-dim)]">Academic Coursework Certification</p>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Symmetric/asymmetric encryption, PKI, digital signatures, and TLS protocols.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       7. EDUCATION & ACHIEVEMENTS SECTION (#education)
+       ========================================================================= -->
+  <section id="education" class="py-24 relative bg-[var(--bg)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-title-badge">Academic & Honors</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mb-4">Education & Achievements</h2>
+        <p class="text-[var(--text-muted)] text-base">
+          Degree details, academic performance metrics, and competitive awards.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <!-- Left Column: Education Degree Cards (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <h3 class="font-heading text-xl font-bold text-[var(--text)] flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-[var(--azure-blue)]"></span>
+            Academic Degrees
+          </h3>
+
+          <!-- BCA Degree -->
+          <div class="glass-card card-glow-accent p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+              <h4 class="font-heading font-bold text-lg text-[var(--text)]">
+                Bachelor of Computer Applications (BCA)
+              </h4>
+              <span class="text-xs font-mono font-bold text-[var(--azure-blue)]">Jun 2023 – Apr 2026</span>
+            </div>
+            <p class="text-xs font-semibold text-[var(--azure-blue)] mb-2">
+              Specialization: Cloud Computing and Security | Sri Balaji University, Pune (SBUP)
+            </p>
+            <div class="flex items-center gap-3 mt-3 pt-3 border-t border-[var(--card-border)]">
+              <span class="tech-pill text-xs font-bold">CGPA: 8.0 / 10</span>
+              <span class="text-xs text-[var(--text-muted)]">Coursework: Cloud Infrastructure, VAPT, Networking, Security.</span>
+            </div>
+          </div>
+
+          <!-- HSC Science -->
+          <div class="glass-card p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">
+                Higher Secondary Certificate (HSC) - Science
+              </h4>
+              <span class="text-xs font-mono text-[var(--text-dim)]">Jun 2022 – Mar 2023</span>
+            </div>
+            <p class="text-xs text-[var(--text-muted)]">Late Bhalerao Rambhau Patil Jr. College, Marwad</p>
+            <div class="mt-3 pt-2 border-t border-[var(--card-border)]">
+              <span class="tech-pill text-xs">Percentage: 73.67%</span>
+            </div>
+          </div>
+
+          <!-- SSC -->
+          <div class="glass-card p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+              <h4 class="font-heading font-bold text-base text-[var(--text)]">
+                Secondary School Certificate (SSC)
+              </h4>
+              <span class="text-xs font-mono text-[var(--text-dim)]">Jun 2020 – Mar 2021</span>
+            </div>
+            <p class="text-xs text-[var(--text-muted)]">Late P. K. Shinde High School, Pachora</p>
+            <div class="mt-3 pt-2 border-t border-[var(--card-border)]">
+              <span class="tech-pill text-xs">Percentage: 77.20%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Achievements & Recognition (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <h3 class="font-heading text-xl font-bold text-[var(--text)] flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            Key Achievements & Awards
+          </h3>
+
+          <div class="space-y-4">
+            <div class="glass-card p-4 flex items-start gap-3">
+              <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">🏆</span>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text)]">100% University Semester Attendance</h4>
+                <p class="text-xs text-[var(--text-muted)]">Awarded Certificate of Appreciation + ₹5,000 Cheque for perfect attendance at Sri Balaji University.</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 flex items-start gap-3">
+              <span class="p-2 rounded-lg bg-[var(--badge-azure-bg)] text-[var(--azure-blue)]">📜</span>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text)]">Student Council Appreciation Letter</h4>
+                <p class="text-xs text-[var(--text-muted)]">Received formal recognition letter for Student Council contribution (AY 2023-24).</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 flex items-start gap-3">
+              <span class="p-2 rounded-lg bg-purple-500/10 text-purple-500">🎖️</span>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text)]">Tantraudagama 2025 Tech Competition</h4>
+                <p class="text-xs text-[var(--text-muted)]">Awarded Certificate of Appreciation in inter-college tech competition.</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 flex items-start gap-3">
+              <span class="p-2 rounded-lg bg-amber-500/10 text-amber-500">🎗️</span>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text)]">Deolali Military Camp Representative</h4>
+                <p class="text-xs text-[var(--text-muted)]">Selected as Sri Balaji University Representative for Deolali Military Camp program.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       8. CONTACT SECTION (#contact)
+       ========================================================================= -->
+  <section id="contact" class="py-24 relative bg-[var(--bg-alt)] border-t border-[var(--card-border)]">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-title-badge">Get In Touch</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-[var(--text)] mb-6">
+          Let's Connect & Build on Azure
+        </h2>
+        <p class="text-[var(--text-muted)] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Seeking entry-level opportunities as an <strong>Azure Cloud Engineer</strong>, <strong>Cloud Support Engineer</strong>, <strong>Azure Administrator</strong>, or <strong>Junior DevOps Engineer</strong>.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <!-- Left Column: Contact Info Cards (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="glass-card card-glow-accent p-6 flex items-center gap-4">
+            <div class="p-3 rounded-full bg-[var(--badge-azure-bg)] text-[var(--azure-blue)]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs text-[var(--text-dim)] uppercase">Email Address</h3>
+              <a href="mailto:pruthvirajsp1307@gmail.com" class="text-xs font-mono font-bold text-[var(--azure-blue)] hover:underline">
+                pruthvirajsp1307@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card card-glow-accent p-6 flex items-center gap-4">
+            <div class="p-3 rounded-full bg-emerald-500/10 text-emerald-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs text-[var(--text-dim)] uppercase">Phone</h3>
+              <a href="tel:+919322798130" class="text-xs font-mono font-bold text-emerald-500 hover:underline">
+                +91 9322798130
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card card-glow-accent p-6 flex items-center gap-4">
+            <div class="p-3 rounded-full bg-purple-500/10 text-purple-500">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs text-[var(--text-dim)] uppercase">LinkedIn Profile</h3>
+              <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank" class="text-xs font-mono font-bold text-purple-500 hover:underline">
+                linkedin.com/in/pruthviraj22/
+              </a>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button id="copy-email-btn" class="btn-secondary w-full text-xs">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              Copy Email Address
+            </button>
+            <div id="copy-toast" class="hidden items-center justify-center gap-2 mt-3 text-xs font-mono font-bold text-emerald-500 bg-emerald-500/10 py-2 px-4 rounded-full border border-emerald-500/20">
+              ✓ Email copied to clipboard!
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Contact Form (7 cols) -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="glass-card card-glow-accent p-8 space-y-5">
+            <h3 class="font-heading font-bold text-xl text-[var(--text)] mb-2">Send Me a Message</h3>
+            
+            <div>
+              <label for="contact-name" class="block text-xs font-bold text-[var(--text-muted)] mb-1">Your Name</label>
+              <input type="text" id="contact-name" required placeholder="e.g. Hiring Manager" class="w-full px-4 py-2.5 rounded-lg bg-[var(--input-bg)] border border-[var(--card-border)] text-sm text-[var(--text)] focus:outline-none focus:border-[var(--azure-blue)] transition-colors" />
+            </div>
+
+            <div>
+              <label for="contact-email" class="block text-xs font-bold text-[var(--text-muted)] mb-1">Your Email Address</label>
+              <input type="email" id="contact-email" required placeholder="name@company.com" class="w-full px-4 py-2.5 rounded-lg bg-[var(--input-bg)] border border-[var(--card-border)] text-sm text-[var(--text)] focus:outline-none focus:border-[var(--azure-blue)] transition-colors" />
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-xs font-bold text-[var(--text-muted)] mb-1">Message / Opportunity Details</label>
+              <textarea id="contact-message" rows="4" required placeholder="Hello Pruthviraj, we have an open Azure Cloud / DevOps role..." class="w-full px-4 py-2.5 rounded-lg bg-[var(--input-bg)] border border-[var(--card-border)] text-sm text-[var(--text)] focus:outline-none focus:border-[var(--azure-blue)] transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full text-sm">
+              Send Message Direct
+            </button>
+
+            <div id="form-status" class="hidden text-xs text-center pt-2"></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="py-8 border-t border-[var(--card-border)] bg-[var(--bg)]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)]">
+      <div>
+        &copy; 2026 <strong>Pruthviraj Patil</strong>. All rights reserved. Built for Azure Cloud & DevOps roles.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/shrreeeram" target="_blank" class="hover:text-[var(--azure-blue)] transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/pruthviraj22/" target="_blank" class="hover:text-[var(--azure-blue)] transition-colors">LinkedIn</a>
+        <a href="mailto:pruthvirajsp1307@gmail.com" class="hover:text-[var(--azure-blue)] transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
